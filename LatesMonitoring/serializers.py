@@ -14,9 +14,11 @@ class TutorGroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = TutorGroup
         fields = ['id', 'name', 'tutor', 'head_of_year', 'assistant_head']
-class StudentSerializer(serializers.ModelSerializer):
-    tutor_group = TutorGroupSerializer()  # Nested serializer for `tutor_group`
 
+class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
-        fields = ['id', 'first_name', 'last_name', 'preferred_name', 'email', 'warehouse_bk', 'tutor_group', 'school_id']
+        fields = [
+            'id', 'first_name', 'last_name', 'email', 'preferred_name',
+            'tutor_group', 'fam_email', 'school_code', 'warehouse_bk'
+        ]

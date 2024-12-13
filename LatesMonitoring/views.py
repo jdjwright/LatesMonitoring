@@ -19,3 +19,5 @@ class TutorGroupViewSet(ModelViewSet):
 class StudentViewSet(ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
+    filter_backends = [SearchFilter]
+    search_fields = ['warehouse_bk']

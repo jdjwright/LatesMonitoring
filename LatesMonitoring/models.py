@@ -19,7 +19,8 @@ class TutorGroup(models.Model):
 
 class Student(Person):
     tutor_group = models.ForeignKey(TutorGroup, on_delete=models.CASCADE)
-    school_id = models.IntegerField()
+    school_code = models.IntegerField()
+    fam_email = models.EmailField()
 
     def __str__(self):
         return f'{self.first_name} {self.last_name} ({self.tutor_group.name})'
